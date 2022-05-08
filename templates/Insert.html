@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operation with PostgreSQL</title>
+</head>
+
+<body>
+    <center>
+        <H1>Insert record into PostgreSQL</H1>
+        <h3>Django Web Tutorials</h3>
+        <hr />
+        <form method="POST">
+            {% csrf_token %}
+            <table border="1">
+                <tr>
+                    <td>Employee Name</td>
+                    <td><input type="text" placeholder="Enter employee name..." name="empname"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" placeholder="Enter email..." name="email"></td>
+                </tr>
+                <tr>
+                    <td>Occupation</td>
+                    <td>
+                        <select name="occupation" id="">
+                            <option selected disabled=true>-- Select Occupation --</option>
+                            <option>Programmer</option>
+                            <option>HR</option>
+                            <option>Sales Manager</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>salary</td>
+                    <td><input type="text" placeholder="Enter salary.." name="salary"></td>
+                </tr>
+                <tr>
+                    <td>gender</td>
+                    <td>
+                        <input type="radio" name="gender" value="M">Male
+                        <input type="radio" name="gender" value="F">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Insert" /></td>
+                    <td>
+                        {% if messages %}
+                        {% for mess in messages %}
+                        <b style="color: green;">{{mess}}</b>
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+            <a href="{% url 'showemp' %}">Home Page</a>
+        </form>
+    </center>
+</body>
+
+</html>
